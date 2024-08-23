@@ -36,16 +36,16 @@ const ProxySidebar = () => {
 
   return (
     <div>
-      <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <div class="px-3 py-3 lg:px-5 lg:pl-3">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center justify-start rtl:justify-end">
+      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div className="px-3 py-3 lg:px-5 lg:pl-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-start rtl:justify-end">
               <button
                 data-drawer-target="logo-sidebar"
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
                 type="button"
-                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 onClick={toggleSidebar}
               >
                 {/* Conditional rendering of icon based on sidebar state */}
@@ -56,23 +56,23 @@ const ProxySidebar = () => {
                 )}
               </button>
 
-              <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-                <img src="steel.png" class="h-8 me-3" alt="steel Logo" />
-                <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+              <a href="https://flowbite.com" className="flex ms-2 md:me-24">
+                <img src="steel.png" className="h-8 me-3" alt="steel Logo" />
+                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   Khatav Steel
                 </span>
               </a>
             </div>
-            <div class="flex items-center">
-              <div class="flex items-center ms-3">
+            <div className="flex items-center">
+              <div className="flex items-center ms-3">
                 <div>
                   <button
                     type="button"
-                    class="flex text-sm  rounded-full "
+                    className="flex text-sm  rounded-full "
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
                   >
-                    <span class="sr-only">Logout</span>
+                    <span className="sr-only">Logout</span>
                     <FontAwesomeIcon
                       icon={faRightFromBracket}
                       className=" w-5 h-5"
@@ -93,20 +93,20 @@ const ProxySidebar = () => {
         } bg-violet-700 border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
         aria-label="Sidebar"
       >
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-violet-700 dark:bg-gray-800">
-          <ul class="space-y-2 font-medium">
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-violet-700 dark:bg-gray-800">
+          <ul className="space-y-2 font-medium">
   
             <li>
               <a
                 href="proxyMaterial"
-                class="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon
                   icon={faBoxesPacking}
                   size="lg"
                   style={{ color: "#FFFFFF" }}
                 />
-                <span class="flex-1 ms-3 whitespace-nowrap text-xl">
+                <span className="flex-1 ms-3 whitespace-nowrap text-xl">
                   Material
                 </span>
               </a>
@@ -114,14 +114,14 @@ const ProxySidebar = () => {
             <li>
               <a
                 href="proxyVehicleBill"
-                class="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon
                   icon={faScaleUnbalancedFlip}
                   size="lg"
                   style={{ color: "#FFFFFF" }}
                 />
-                <span class="flex-1 ms-3 whitespace-nowrap text-xl">
+                <span className="flex-1 ms-3 whitespace-nowrap text-xl">
                   Weight Inward
                 </span>
               </a>
@@ -129,14 +129,14 @@ const ProxySidebar = () => {
             <li>
               <a
                 href="proxyWeightOutward"
-                class="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon
                   icon={faScaleUnbalancedFlip}
                   size="lg"
                   style={{ color: "#FFFFFF" }}
                 />
-                <span class="flex-1 ms-3 whitespace-nowrap text-xl">
+                <span className="flex-1 ms-3 whitespace-nowrap text-xl">
                   Weight Outward
                 </span>
               </a>
@@ -167,9 +167,9 @@ const ProxySidebar = () => {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="m1 1 4 4 4-4"
                   />
                 </svg>
@@ -177,21 +177,21 @@ const ProxySidebar = () => {
               <ul
                 id="dropdown-example"
                 className={`py-2 space-y-2 ${
-                  isDropdownOpen ? "" : "hidden" // Conditional class
+                  isDropdownOpen ? "" : "hidden" // Conditional className
                 }`}
               >
                 {" "}
                 {/* <li>
                   <a
                     href="proxyWeightBillReport"
-                    class="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
+                    className="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
                   >
                     <FontAwesomeIcon
                       icon={faMinus}
                       size="lg"
                       style={{ color: "#FFFFFF" }}
                     />
-                    <span class="flex-1 ms-3 whitespace-nowrap text-base">
+                    <span className="flex-1 ms-3 whitespace-nowrap text-base">
                       Daily Report
                     </span>
                   </a>
@@ -199,10 +199,10 @@ const ProxySidebar = () => {
                 <li>
                   <a
                     href="withoutHeaderReport"
-                    class="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
+                    className="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
                   >
                  
-                    <span class="flex-1  whitespace-nowrap text-base">
+                    <span className="flex-1  whitespace-nowrap text-base">
                     weight Inward Report
                     </span>
                   </a>
@@ -210,10 +210,10 @@ const ProxySidebar = () => {
                 <li>
                   <a
                     href="withoutHeaderOutReport"
-                    class="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
+                    className="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
                   >
                  
-                    <span class="flex-1 whitespace-nowrap text-base">
+                    <span className="flex-1 whitespace-nowrap text-base">
                       Without Header Outward Report
                     </span>
                   </a>
@@ -221,10 +221,10 @@ const ProxySidebar = () => {
                 {/* <li>
                   <a
                     href="headerReport"
-                    class="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
+                    className="flex items-center p-2 text-violet-100 rounded-lg dark:text-white hover:bg-violet-600 dark:hover:bg-gray-700 group"
                   >
                
-                    <span class="flex-1  whitespace-nowrap text-base">
+                    <span className="flex-1  whitespace-nowrap text-base">
                       With Header Report
                     </span>
                   </a>
