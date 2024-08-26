@@ -39,40 +39,16 @@ export default function AdminLogin() {
   //   };
   // }, []); 
 
-  // const handleLogin = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       "https://vehicle-weight-backend.vercel.app/api/admin/login",
-  //       { username, password }
-  //     );
-  //     // Handle successful login, save token to localStorage, redirect, etc.
-  //     console.log(response.data);
-  //     const token = response.data.token;
-
-  //     localStorage.setItem("AdminAuthToken", token);
-  //     setMessage("Login successful");
-  //     router.push("/vehicle");
-  //   } catch (error) {
-  //     setMessage("Authentication failed");
-  //   }
-  // };
-
   const handleLogin = async () => {
     try {
       const response = await axios.post(
         "https://vehicle-weight-backend.vercel.app/api/admin/login",
-        { username, password },
-        {
-          withCredentials: true, // Ensure credentials like cookies are sent
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        { username, password }
       );
       // Handle successful login, save token to localStorage, redirect, etc.
       console.log(response.data);
       const token = response.data.token;
-  
+
       localStorage.setItem("AdminAuthToken", token);
       setMessage("Login successful");
       router.push("/vehicle");
@@ -80,7 +56,7 @@ export default function AdminLogin() {
       setMessage("Authentication failed");
     }
   };
-  
+
 
   
   useEffect(() => {
