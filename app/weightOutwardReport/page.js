@@ -48,7 +48,7 @@ const WeightOutwardReport = () => {
     const fetchWeights = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/weightOutward/weights"
+          "https://vehicle-weight-backend.vercel.app/api/weightOutward/weights"
         );
         setWeights(response.data);
       } catch (error) {

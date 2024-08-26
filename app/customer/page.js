@@ -68,7 +68,7 @@ const Customer = () => {
     try {
       // Send DELETE request to server to delete customer
       const response = await axios.delete(
-        `http://localhost:5000/api/coustomer/coustomers/${deleteItemId}`
+        `https://vehicle-weight-backend.vercel.app/api/coustomer/coustomers/${deleteItemId}`
       );
       console.log("Deleted response:", response.data);
 
@@ -87,7 +87,7 @@ const Customer = () => {
     if (editItemId) {
       // Fetch the customer data to pre-fill the form
       axios
-        .get(`http://localhost:5000/api/coustomer/coustomers/${editItemId}`)
+        .get(`https://vehicle-weight-backend.vercel.app/api/coustomer/coustomers/${editItemId}`)
         .then((response) => {
           setFormData(response.data);
         })
@@ -144,7 +144,7 @@ const Customer = () => {
     try {
       // Make a POST request to your backend API
       const response = await axios.post(
-        "http://localhost:5000/api/coustomer/coustomers",
+        "https://vehicle-weight-backend.vercel.app/api/coustomer/coustomers",
         formData
       );
       console.log("Customer added:", response.data);
@@ -170,7 +170,7 @@ const Customer = () => {
     try {
       // Patch the form data to the server
       const response = await axios.patch(
-        `http://localhost:5000/api/coustomer/coustomers/${editItemId}`,
+        `https://vehicle-weight-backend.vercel.app/api/coustomer/coustomers/${editItemId}`,
         formData
       );
       // After handling the submission, reset the form and close the modal
@@ -216,7 +216,7 @@ const Customer = () => {
   const fetchCustomers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/coustomer/coustomers"
+        "https://vehicle-weight-backend.vercel.app/api/coustomer/coustomers"
       );
       setCoustomers(response.data);
     } catch (error) {

@@ -42,7 +42,7 @@ export default function AdminLogin() {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/admin/login",
+        "https://vehicle-weight-backend.vercel.app/api/admin/login",
         { username, password }
       );
       // Handle successful login, save token to localStorage, redirect, etc.

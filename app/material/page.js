@@ -90,7 +90,7 @@ const Material = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/material/materials",
+        "https://vehicle-weight-backend.vercel.app/api/material/materials",
         { materialName }
       );
 
@@ -118,7 +118,7 @@ const Material = () => {
     e.preventDefault();
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/material/materials/${materialId}`,
+        `https://vehicle-weight-backend.vercel.app/api/material/materials/${materialId}`,
         { materialName: editedMaterialName, isChecked }
       );
 
@@ -149,7 +149,7 @@ const Material = () => {
     const fetchMaterials = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/material/materials"
+          "https://vehicle-weight-backend.vercel.app/api/material/materials"
         );
         setMaterials(response.data);
       } catch (error) {
@@ -200,7 +200,7 @@ const Material = () => {
   const handleDeleteConfirmation = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/material/materials/${materialToDelete}`
+        `https://vehicle-weight-backend.vercel.app/api/material/materials/${materialToDelete}`
       );
 
       if (response.data.message === "material deleted successfully") {

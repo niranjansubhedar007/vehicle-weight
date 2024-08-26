@@ -45,7 +45,7 @@ const ProxyVehicleBill = () => {
 
   const fetchTareWeight = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/serial/get_data");
+      const response = await axios.get("https://vehicle-weight-backend.vercel.app/api/serial/get_data");
       console.log("Tare Weight Data:", response.data); // Log the response data
 
       setTareWeightData(response.data);
@@ -87,8 +87,8 @@ const ProxyVehicleBill = () => {
     const fetchDataAndRSTNo = async () => {
       try {
         const [vehicleResponse, rstNoResponse] = await Promise.all([
-          axios.get("http://localhost:5000/api/vehical/vehicles"),
-          axios.get("http://localhost:5000/api/proxyWeight/weight/getNextRSTNo"),
+          axios.get("https://vehicle-weight-backend.vercel.app/api/vehical/vehicles"),
+          axios.get("https://vehicle-weight-backend.vercel.app/api/proxyWeight/weight/getNextRSTNo"),
         ]);
         setVehicles(vehicleResponse.data);
         setRSTNo(rstNoResponse.data.nextRSTNo); // Set the fetched RSTNo
@@ -103,7 +103,7 @@ const ProxyVehicleBill = () => {
     const fetchSerialWeight = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/serial/get_data"
+          "https://vehicle-weight-backend.vercel.app/api/serial/get_data"
         );
         console.log(response.data);
         setGrossWeight(response.data.weight);
@@ -142,7 +142,7 @@ const ProxyVehicleBill = () => {
     const fetchVehicles = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/vehical/vehicles"
+          "https://vehicle-weight-backend.vercel.app/api/vehical/vehicles"
         );
         setVehicles(response.data);
       } catch (error) {
@@ -158,7 +158,7 @@ const ProxyVehicleBill = () => {
     setSelectedVehicleRTONo(rtOno);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/vehical/vehicles/details/${rtOno}`
+        `https://vehicle-weight-backend.vercel.app/api/vehical/vehicles/details/${rtOno}`
       );
       const { vehicalOwnerName, mobileNo, address } = response.data;
       setSelectedVehicleOwner(vehicalOwnerName);
@@ -175,9 +175,9 @@ const ProxyVehicleBill = () => {
       try {
         const [customerResponse, vehicleResponse, materialResponse] =
           await Promise.all([
-            axios.get("http://localhost:5000/api/coustomer/coustomers"),
-            axios.get("http://localhost:5000/api/vehical/vehicles"),
-            axios.get("http://localhost:5000/api/proxyMaterial/proxyMaterials"),
+            axios.get("https://vehicle-weight-backend.vercel.app/api/coustomer/coustomers"),
+            axios.get("https://vehicle-weight-backend.vercel.app/api/vehical/vehicles"),
+            axios.get("https://vehicle-weight-backend.vercel.app/api/proxyMaterial/proxyMaterials"),
           ]);
         setCustomers(customerResponse.data);
         setVehicles(vehicleResponse.data);
@@ -389,7 +389,7 @@ const ProxyVehicleBill = () => {
       console.log("Weight Data:", weightData);
 
       // Make the API call to save the data if needed
-      await axios.post("http://localhost:5000/api/proxyWeight/weights", weightData);
+      await axios.post("https://vehicle-weight-backend.vercel.app/api/proxyWeight/weights", weightData);
 
       // Set the data for printing
       setPrintingData(weightData);
@@ -432,7 +432,7 @@ const ProxyVehicleBill = () => {
   useEffect(() => {
     const fetchWeights = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/proxyWeight/weights");
+        const response = await axios.get("https://vehicle-weight-backend.vercel.app/api/proxyWeight/weights");
         // Filter out weight entries where isTemporary is false
         const filteredWeights = response.data.filter(weight => !weight.isTemporary);
         setWeightsList(filteredWeights);
@@ -518,10 +518,10 @@ const ProxyVehicleBill = () => {
   
     
         // Make the API call to update the weight entry
-        await axios.patch(`http://localhost:5000/api/proxyWeight/weights/${editingWeight._id}`, weightData);
+        await axios.patch(`https://vehicle-weight-backend.vercel.app/proxyWeight/weights/${editingWeight._id}`, weightData);
     
         // Refresh the weights list after editing
-        const response = await axios.get("http://localhost:5000/api/proxyWeight/weights");
+        const response = await axios.get("https://vehicle-weight-backend.vercel.app/proxyWeight/weights");
         setWeightsList(response.data);
         console.log(response.data);
         setEditingWeight(null); // Clear editing state

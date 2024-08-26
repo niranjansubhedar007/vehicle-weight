@@ -42,7 +42,7 @@
 //   useEffect(() => {
 //     const fetchWeights = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:5000/api/weight/weights");
+//         const response = await axios.get("https://vehicle-weight-backend.vercel.app/api/weight/weights");
 //         setWeights(response.data);
 //       } catch (error) {
 //         console.error("Error fetching weights:", error);
@@ -411,7 +411,7 @@ const Weights = () => {
   useEffect(() => {
     const fetchWeights = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/weight/weights");
+        const response = await axios.get("https://vehicle-weight-backend.vercel.app/api/weight/weights");
         setWeights(response.data);
       } catch (error) {
         console.error("Error fetching weights:", error);

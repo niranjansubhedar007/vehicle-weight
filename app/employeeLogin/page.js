@@ -47,7 +47,7 @@ export default function EmployeeLogin() {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/employeeLogin/login",
+        "https://vehicle-weight-backend.vercel.app/api/employeeLogin/login",
         { username, password }
       );
       // Handle successful login, save token to localStorage, redirect, etc.
