@@ -44,7 +44,7 @@ const ProxyWeightOutward = () => {
 
   const fetchTareWeight = async () => {
     try {
-      const response = await axios.get("https://vehicle-weight-backend.vercel.app/api/serial/get_data");
+      const response = await axios.get("http://16.170.231.171/api/serial/get_data");
       console.log("Tare Weight Data:", response.data); // Log the response data
 
       setTareWeightData(response.data);
@@ -77,8 +77,8 @@ const ProxyWeightOutward = () => {
     const fetchDataAndRSTNo = async () => {
       try {
         const [vehicleResponse, rstNoResponse] = await Promise.all([
-          axios.get("https://vehicle-weight-backend.vercel.app/api/vehical/vehicles"),
-          axios.get("https://vehicle-weight-backend.vercel.app/api/proxyWeightOutward/weight/getNextRSTNo"),
+          axios.get("http://16.170.231.171/api/vehical/vehicles"),
+          axios.get("http://16.170.231.171/api/proxyWeightOutward/weight/getNextRSTNo"),
         ]);
         setVehicles(vehicleResponse.data);
         setRSTNo(rstNoResponse.data.nextRSTNo); // Set the fetched RSTNo
@@ -93,7 +93,7 @@ const ProxyWeightOutward = () => {
     const fetchSerialWeight = async () => {
       try {
         const response = await axios.get(
-          "https://vehicle-weight-backend.vercel.app/api/serial/get_data"
+          "http://16.170.231.171/api/serial/get_data"
         );
         console.log(response.data);
     
@@ -133,7 +133,7 @@ const ProxyWeightOutward = () => {
     const fetchVehicles = async () => {
       try {
         const response = await axios.get(
-          "https://vehicle-weight-backend.vercel.app/api/vehical/vehicles"
+          "http://16.170.231.171/api/vehical/vehicles"
         );
         setVehicles(response.data);
       } catch (error) {
@@ -149,7 +149,7 @@ const ProxyWeightOutward = () => {
     setSelectedVehicleRTONo(rtOno);
     try {
       const response = await axios.get(
-        `https://vehicle-weight-backend.vercel.app/api/vehical/vehicles/details/${rtOno}`
+        `http://16.170.231.171/api/vehical/vehicles/details/${rtOno}`
       );
       const { vehicalOwnerName, mobileNo, address } = response.data;
       setSelectedVehicleOwner(vehicalOwnerName);
@@ -166,9 +166,9 @@ const ProxyWeightOutward = () => {
       try {
         const [customerResponse, vehicleResponse, materialResponse] =
           await Promise.all([
-            axios.get("https://vehicle-weight-backend.vercel.app/api/coustomer/coustomers"),
-            axios.get("https://vehicle-weight-backend.vercel.app/api/vehical/vehicles"),
-            axios.get("https://vehicle-weight-backend.vercel.app/api/proxyMaterial/proxyMaterials"),
+            axios.get("http://16.170.231.171/api/coustomer/coustomers"),
+            axios.get("http://16.170.231.171/api/vehical/vehicles"),
+            axios.get("http://16.170.231.171/api/proxyMaterial/proxyMaterials"),
 
           ]);
         setCustomers(customerResponse.data);
@@ -203,7 +203,7 @@ const ProxyWeightOutward = () => {
 //       console.log("Weight Data:", weightData);
 
 //       // Make the API call to save the data if needed
-//       await axios.post("https://vehicle-weight-backend.vercel.app/api/weightOutward/weights", weightData);
+//       await axios.post("http://16.170.231.171/api/weightOutward/weights", weightData);
 
 //       // Set the data for printing
 //       setPrintingData(weightData);
@@ -382,7 +382,7 @@ const ProxyWeightOutward = () => {
       console.log("Weight Data:", weightData);
 
       // Make the API call to save the data if needed
-      await axios.post("https://vehicle-weight-backend.vercel.app/api/proxyWeightOutward/weights", weightData);
+      await axios.post("http://16.170.231.171/api/proxyWeightOutward/weights", weightData);
 
       // Set the data for printing
       setPrintingData(weightData);
@@ -410,7 +410,7 @@ const ProxyWeightOutward = () => {
   useEffect(() => {
     const fetchWeights = async () => {
       try {
-        const response = await axios.get("https://vehicle-weight-backend.vercel.app/api/proxyWeightOutward/weights");
+        const response = await axios.get("http://16.170.231.171/api/proxyWeightOutward/weights");
         // Filter out weight entries where isTemporary is false
         const filteredWeights = response.data.filter(weight => !weight.isTemporary);
         setWeightsList(filteredWeights);
@@ -492,10 +492,10 @@ const ProxyWeightOutward = () => {
       };
   
       // Make the API call to update the weight entry
-      await axios.patch(`https://vehicle-weight-backend.vercel.app/api/proxyWeightOutward/weights/${editingWeight._id}`, weightData);
+      await axios.patch(`http://16.170.231.171/api/proxyWeightOutward/weights/${editingWeight._id}`, weightData);
   
       // Refresh the weights list after editing
-      const response = await axios.get("https://vehicle-weight-backend.vercel.app/api/proxyWeightOutward/weights");
+      const response = await axios.get("http://16.170.231.171/api/proxyWeightOutward/weights");
       setWeightsList(response.data);
       setEditingWeight(null); // Clear editing state
       setIsLoading(false);

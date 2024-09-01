@@ -38,11 +38,10 @@ export default function AdminLogin() {
   //     document.removeEventListener("keydown", handleKeyDown);
   //   };
   // }, []); 
-
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "https://vehicle-weight-backend.vercel.app/api/admin/login",
+        "http://16.170.231.171/api/admin/login",
         { username, password }
       );
       // Handle successful login, save token to localStorage, redirect, etc.

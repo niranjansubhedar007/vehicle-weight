@@ -101,7 +101,7 @@ const Vehicle = () => {
 
     try {
       const response = await axios.post(
-        "https://vehicle-weight-backend.vercel.app/api/vehical/vehicles",
+        "http://16.170.231.171/api/vehical/vehicles",
         formData
       );
 
@@ -122,7 +122,7 @@ const Vehicle = () => {
     try {
       // Patch the form data to the server
       const response = await axios.patch(
-        `https://vehicle-weight-backend.vercel.app/api/vehical/vehicles/${editFormData._id}`,
+        `http://16.170.231.171/api/vehical/vehicles/${editFormData._id}`,
         editFormData
       );
       console.log("Edited response:", response.data);
@@ -152,7 +152,7 @@ const Vehicle = () => {
     try {
       // Send DELETE request to server to delete vehicle
       await axios.delete(
-        `https://vehicle-weight-backend.vercel.app/api/vehical/vehicles/${deleteItemId}`
+        `http://16.170.231.171/api/vehical/vehicles/${deleteItemId}`
       );
 
       // Filter out the deleted vehicle from the vehicleData state
@@ -177,7 +177,7 @@ const Vehicle = () => {
     const fetchVehicleData = async () => {
       try {
         const response = await axios.get(
-          "https://vehicle-weight-backend.vercel.app/api/vehical/vehicles"
+          "http://16.170.231.171/api/vehical/vehicles"
         );
         setVehicleData(response.data);
       } catch (error) {

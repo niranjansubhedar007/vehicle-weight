@@ -11,7 +11,7 @@ const EmployeeForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://vehicle-weight-backend.vercel.app/api/employeeLogin/forgotPassword', { username });
+      const response = await axios.post('http://16.170.231.171/api/employeeLogin/forgotPassword', { username });
 
       if (response.status === 200) {
         alert(response.data.message); // You can replace this with a toast or a modal
