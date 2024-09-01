@@ -44,7 +44,7 @@ const WeightOutward = () => {
 
   const fetchTareWeight = async () => {
     try {
-      const response = await axios.get("http://16.170.231.171/api/serial/get_data");
+      const response = await axios.get("https://niranjan.rajpawar.xyz/api/serial/get_data");
       console.log("Tare Weight Data:", response.data); // Log the response data
 
       setTareWeightData(response.data);
@@ -70,8 +70,8 @@ const WeightOutward = () => {
     const fetchDataAndRSTNo = async () => {
       try {
         const [vehicleResponse, rstNoResponse] = await Promise.all([
-          axios.get("http://16.170.231.171/api/vehical/vehicles"),
-          axios.get("http://16.170.231.171/api/weightOutward/weight/getNextRSTNo"),
+          axios.get("https://niranjan.rajpawar.xyz/api/vehical/vehicles"),
+          axios.get("https://niranjan.rajpawar.xyz/api/weightOutward/weight/getNextRSTNo"),
         ]);
         setVehicles(vehicleResponse.data);
         setRSTNo(rstNoResponse.data.nextRSTNo); // Set the fetched RSTNo
@@ -86,7 +86,7 @@ const WeightOutward = () => {
     const fetchSerialWeight = async () => {
       try {
         const response = await axios.get(
-          "http://16.170.231.171/api/serial/get_data"
+          "https://niranjan.rajpawar.xyz/api/serial/get_data"
         );
         console.log(response.data);
     
@@ -126,7 +126,7 @@ const WeightOutward = () => {
     const fetchVehicles = async () => {
       try {
         const response = await axios.get(
-          "http://16.170.231.171/api/vehical/vehicles"
+          "https://niranjan.rajpawar.xyz/api/vehical/vehicles"
         );
         setVehicles(response.data);
       } catch (error) {
@@ -142,7 +142,7 @@ const WeightOutward = () => {
     setSelectedVehicleRTONo(rtOno);
     try {
       const response = await axios.get(
-        `http://16.170.231.171/api/vehical/vehicles/details/${rtOno}`
+        `https://niranjan.rajpawar.xyz/api/vehical/vehicles/details/${rtOno}`
       );
       const { vehicalOwnerName, mobileNo, address } = response.data;
       setSelectedVehicleOwner(vehicalOwnerName);
@@ -159,9 +159,9 @@ const WeightOutward = () => {
       try {
         const [customerResponse, vehicleResponse, materialResponse] =
           await Promise.all([
-            axios.get("http://16.170.231.171/api/coustomer/coustomers"),
-            axios.get("http://16.170.231.171/api/vehical/vehicles"),
-            axios.get("http://16.170.231.171/api/material/materials"),
+            axios.get("https://niranjan.rajpawar.xyz/api/coustomer/coustomers"),
+            axios.get("https://niranjan.rajpawar.xyz/api/vehical/vehicles"),
+            axios.get("https://niranjan.rajpawar.xyz/api/material/materials"),
           ]);
         setCustomers(customerResponse.data);
         setVehicles(vehicleResponse.data);
@@ -195,7 +195,7 @@ const WeightOutward = () => {
 //       console.log("Weight Data:", weightData);
 
 //       // Make the API call to save the data if needed
-//       await axios.post("http://16.170.231.171/api/weightOutward/weights", weightData);
+//       await axios.post("https://niranjan.rajpawar.xyz/api/weightOutward/weights", weightData);
 
 //       // Set the data for printing
 //       setPrintingData(weightData);
@@ -374,7 +374,7 @@ const WeightOutward = () => {
       console.log("Weight Data:", weightData);
 
       // Make the API call to save the data if needed
-      await axios.post("http://16.170.231.171/api/weightOutward/weights", weightData);
+      await axios.post("https://niranjan.rajpawar.xyz/api/weightOutward/weights", weightData);
 
       // Set the data for printing
       setPrintingData(weightData);
@@ -402,7 +402,7 @@ const WeightOutward = () => {
   useEffect(() => {
     const fetchWeights = async () => {
       try {
-        const response = await axios.get("http://16.170.231.171/api/weightOutward/weights");
+        const response = await axios.get("https://niranjan.rajpawar.xyz/api/weightOutward/weights");
         // Filter out weight entries where isTemporary is false
         const filteredWeights = response.data.filter(weight => !weight.isTemporary);
         setWeightsList(filteredWeights);
@@ -484,10 +484,10 @@ const WeightOutward = () => {
       };
   
       // Make the API call to update the weight entry
-      await axios.patch(`http://16.170.231.171/api/weightOutward/weights/${editingWeight._id}`, weightData);
+      await axios.patch(`https://niranjan.rajpawar.xyz/api/weightOutward/weights/${editingWeight._id}`, weightData);
   
       // Refresh the weights list after editing
-      const response = await axios.get("http://16.170.231.171/api/weightOutward/weights");
+      const response = await axios.get("https://niranjan.rajpawar.xyz/api/weightOutward/weights");
       setWeightsList(response.data);
       setEditingWeight(null); // Clear editing state
       setIsLoading(false);

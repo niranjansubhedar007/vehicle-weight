@@ -80,7 +80,7 @@ const ProxyMaterial = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://16.170.231.171/api/proxyMaterial/proxyMaterials",
+        "https://niranjan.rajpawar.xyz/api/proxyMaterial/proxyMaterials",
         { materialName }
       );
 
@@ -108,7 +108,7 @@ const ProxyMaterial = () => {
     e.preventDefault();
     try {
       const response = await axios.patch(
-        `http://16.170.231.171/api/proxyMaterial/proxyMaterials/${materialId}`,
+        `https://niranjan.rajpawar.xyz/api/proxyMaterial/proxyMaterials/${materialId}`,
         { materialName: editedMaterialName, isChecked }
       );
 
@@ -139,7 +139,7 @@ const ProxyMaterial = () => {
     const fetchMaterials = async () => {
       try {
         const response = await axios.get(
-          "http://16.170.231.171/api/proxyMaterial/proxyMaterials"
+          "https://niranjan.rajpawar.xyz/api/proxyMaterial/proxyMaterials"
         );
         setMaterials(response.data);
       } catch (error) {
@@ -180,7 +180,7 @@ const ProxyMaterial = () => {
   const handleDeleteConfirmation = async () => {
     try {
       const response = await axios.delete(
-        `http://16.170.231.171/api/proxyMaterial/proxyMaterials/${materialToDelete}`
+        `https://niranjan.rajpawar.xyz/api/proxyMaterial/proxyMaterials/${materialToDelete}`
       );
 
       if (response.data.message === "material deleted successfully") {

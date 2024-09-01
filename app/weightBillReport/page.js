@@ -42,7 +42,7 @@
 //   useEffect(() => {
 //     const fetchWeights = async () => {
 //       try {
-//         const response = await axios.get("http://16.170.231.171/api/weight/weights");
+//         const response = await axios.get("https://niranjan.rajpawar.xyz/api/weight/weights");
 //         setWeights(response.data);
 //       } catch (error) {
 //         console.error("Error fetching weights:", error);
@@ -411,7 +411,7 @@ const Weights = () => {
   useEffect(() => {
     const fetchWeights = async () => {
       try {
-        const response = await axios.get("http://16.170.231.171/api/weight/weights");
+        const response = await axios.get("https://niranjan.rajpawar.xyz/api/weight/weights");
         setWeights(response.data);
       } catch (error) {
         console.error("Error fetching weights:", error);

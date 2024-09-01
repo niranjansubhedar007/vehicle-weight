@@ -45,7 +45,7 @@ const HeaderOutwardReport = () => {
     const fetchWeights = async () => {
       try {
         const response = await axios.get(
-          "http://16.170.231.171/api/proxyWeightOutward/weights"
+          "https://niranjan.rajpawar.xyz/api/proxyWeightOutward/weights"
         );
         setWeights(response.data);
       } catch (error) {

@@ -48,7 +48,7 @@ const WeightOutwardReport = () => {
     const fetchWeights = async () => {
       try {
         const response = await axios.get(
-          "http://16.170.231.171/api/weightOutward/weights"
+          "https://niranjan.rajpawar.xyz/api/weightOutward/weights"
         );
         setWeights(response.data);
       } catch (error) {

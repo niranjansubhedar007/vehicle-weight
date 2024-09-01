@@ -41,7 +41,7 @@ export default function AdminLogin() {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "http://16.170.231.171/api/admin/login",
+        "https://niranjan.rajpawar.xyz/api/admin/login",
         { username, password }
       );
       // Handle successful login, save token to localStorage, redirect, etc.

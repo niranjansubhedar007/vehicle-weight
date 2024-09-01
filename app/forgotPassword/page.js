@@ -11,7 +11,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://16.170.231.171/api/admin/forgotPassword', { username });
+      const response = await axios.post('https://niranjan.rajpawar.xyz/api/admin/forgotPassword', { username });
 
       if (response.status === 200) {
         alert(response.data.message); // You can replace this with a toast or a modal
