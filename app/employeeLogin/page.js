@@ -78,7 +78,7 @@ export default function EmployeeLogin() {
     <>
       {isOrderEnabled ? (
         <div
-          className="bg-cover bg-center min-h-screen flex items-center justify-center"
+          className="bg-cover bg-center min-h-screen flex items-center justify-center text-black"
           style={{ backgroundImage: "url('blue.jpg')" }}
         >
           <div className="absolute inset-0 bg-opacity-50 bg-violet-900"></div>
