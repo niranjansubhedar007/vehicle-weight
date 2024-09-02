@@ -26,25 +26,29 @@ const Vehicle = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const router = useRouter();
-
   useEffect(() => {
-    // Add event listener when component mounts
+    let typedSequence = ""; // Initialize an empty string to store the typed sequence
+
     const handleKeyDown = (event) => {
-      // Check if Ctrl + N is pressed
-      if (event.ctrlKey && event.key === "z") {
-        // Navigate to proxyLogin page
-        router.push("/proxyLogin");
+      typedSequence += event.key; // Append the pressed key to the sequence
+
+      if (typedSequence.includes("z123")) {
+        router.push("/proxyLogin"); // Trigger the route when "z123" is typed
+        typedSequence = ""; // Reset the sequence after triggering the route
+      }
+
+      // Clear the sequence if it gets too long
+      if (typedSequence.length > 4) {
+        typedSequence = typedSequence.slice(-4);
       }
     };
 
-    // Attach event listener to the document
     document.addEventListener("keydown", handleKeyDown);
 
-    // Remove event listener when component unmounts
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const authToken = localStorage.getItem("AdminAuthToken");
@@ -208,17 +212,6 @@ const Vehicle = () => {
     pageNumbers.push(i);
   }
 
-  // const filteredVehicles = vehicleData.filter((vehicle) => {
-  //   const vehicleNo = vehicle.vehicalRTONo.toLowerCase();
-  //   const ownerName = vehicle.vehicalOwnerName.toLowerCase();
-  //   const searchTermLowerCase = searchTerm.toLowerCase();
-  //   return (
-  //     vehicleNo.includes(searchTermLowerCase) ||
-  //     ownerName.includes(searchTermLowerCase)
-  //   );
-  // });
-
-  // console.log("Vehicle Data:", vehicleData);
 
   const filteredVehicles = vehicleData.filter((vehicle) => {
     const vehicleNo = vehicle.vehicalRTONo
