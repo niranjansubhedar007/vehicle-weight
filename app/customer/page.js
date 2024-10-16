@@ -90,6 +90,8 @@ const Customer = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [router]);
+
+  
   // Function to handle opening delete modal and set ID of customer to be deleted
   const handleOpenDeleteModal = (id) => {
     setDeleteItemId(id);

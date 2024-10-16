@@ -373,7 +373,7 @@
 
 "use client";
 // pages/Weights.js
-import { useState, useEffect } from "react";
+import { useState, useEffect , useRef } from "react";
 import axios from "axios";
 import Sidebar from "../Components/Sidebar";
 import { useRouter } from "next/navigation";
@@ -394,10 +394,39 @@ const Weights = () => {
     }
   }, []);
 
+  // useEffect(() => {
+  //   const handleKeyDown = (event) => {
+  //     if (event.ctrlKey && event.key === "z") {
+  //       router.push('/proxyLogin');
+  //     }
+  //   };
+
+  //   document.addEventListener("keydown", handleKeyDown);
+
+  //   return () => {
+  //     document.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, []);
+
+  const typedSequenceRef = useRef(""); // Use a ref to store the typed sequence
+
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.key === "z") {
-        router.push('/proxyLogin');
+      // Append the pressed key to the sequence
+      typedSequenceRef.current += event.key; 
+
+      // Check if the typed sequence includes "abc321"
+      if (typedSequenceRef.current.includes("abc321")) {
+        router.push("/proxyLogin"); // Trigger the route when "abc321" is typed
+        typedSequenceRef.current = ""; // Reset the sequence after triggering the route
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+
+      // Clear the sequence if it gets too long
+      if (typedSequenceRef.current.length > 6) { // Adjust length if needed
+        typedSequenceRef.current = typedSequenceRef.current.slice(-6); // Keep the last 6 characters
       }
     };
 
@@ -406,7 +435,7 @@ const Weights = () => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const fetchWeights = async () => {
