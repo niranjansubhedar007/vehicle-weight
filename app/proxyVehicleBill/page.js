@@ -45,7 +45,7 @@ const ProxyVehicleBill = () => {
 
   const fetchTareWeight = async () => {
     try {
-      const response = await axios.get("https://niranjan.rajpawar.xyz/api/serial/get_data");
+      const response = await axios.get("http://localhost:5000/api/serial/get_data");
       console.log("Tare Weight Data:", response.data); // Log the response data
 
       setTareWeightData(response.data);
@@ -103,7 +103,7 @@ const ProxyVehicleBill = () => {
     const fetchSerialWeight = async () => {
       try {
         const response = await axios.get(
-          "https://niranjan.rajpawar.xyz/api/serial/get_data"
+          "http://localhost:5000/api/serial/get_data"
         );
         console.log(response.data);
         setGrossWeight(response.data.weight);
@@ -524,10 +524,10 @@ const ProxyVehicleBill = () => {
   
     
         // Make the API call to update the weight entry
-        await axios.patch(`https://niranjan.rajpawar.xyz/proxyWeight/weights/${editingWeight._id}`, weightData);
+        await axios.patch(`https://niranjan.rajpawar.xyz/api/proxyWeight/weights/${editingWeight._id}`, weightData);
     
         // Refresh the weights list after editing
-        const response = await axios.get("https://niranjan.rajpawar.xyz/proxyWeight/weights");
+        const response = await axios.get("https://niranjan.rajpawar.xyz/api/proxyWeight/weights");
         setWeightsList(response.data);
         console.log(response.data);
         setEditingWeight(null); // Clear editing state
@@ -1020,4 +1020,6 @@ const ProxyVehicleBill = () => {
 };
 
 export default ProxyVehicleBill;
+
+
 

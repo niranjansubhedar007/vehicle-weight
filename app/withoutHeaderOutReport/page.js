@@ -15,12 +15,7 @@ const HeaderOutwardReport = () => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    const authToken = localStorage.getItem("ProxyAdminAuthToken");
-    if (!authToken) {
-      router.push("/material");
-    }
-  }, []);
+
 
   useEffect(() => {
     // Add event listener when component mounts

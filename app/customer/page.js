@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useRef} from "react";
 import axios from "axios";
 import Sidebar from "../Components/Sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,20 +33,54 @@ const Customer = () => {
 
   const router = useRouter();
 
-   useEffect(() => {
-    let typedSequence = ""; // Initialize an empty string to store the typed sequence
+  //  useEffect(() => {
+  //   let typedSequence = ""; // Initialize an empty string to store the typed sequence
 
+  //   const handleKeyDown = (event) => {
+  //     typedSequence += event.key; // Append the pressed key to the sequence
+
+  //     if (typedSequence.includes("abc321")) {
+  //       router.push("/proxyLogin"); // Trigger the route when "z123" is typed
+  //       typedSequence = ""; // Reset the sequence after triggering the route
+  //       console.log("true");
+        
+  //     }else{
+  //       console.log("false");
+
+  //     }
+
+  //     // Clear the sequence if it gets too long
+  //     if (typedSequence.length > 4) {
+  //       typedSequence = typedSequence.slice(-4);
+  //     }
+  //   };
+
+  //   document.addEventListener("keydown", handleKeyDown);
+
+  //   return () => {
+  //     document.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, [router]);
+
+  const typedSequenceRef = useRef(""); // Use a ref to store the typed sequence
+
+  useEffect(() => {
     const handleKeyDown = (event) => {
-      typedSequence += event.key; // Append the pressed key to the sequence
+      // Append the pressed key to the sequence
+      typedSequenceRef.current += event.key; 
 
-      if (typedSequence.includes("z123")) {
-        router.push("/proxyLogin"); // Trigger the route when "z123" is typed
-        typedSequence = ""; // Reset the sequence after triggering the route
+      // Check if the typed sequence includes "abc321"
+      if (typedSequenceRef.current.includes("abc321")) {
+        router.push("/proxyLogin"); // Trigger the route when "abc321" is typed
+        typedSequenceRef.current = ""; // Reset the sequence after triggering the route
+        console.log("true");
+      } else {
+        console.log("false");
       }
 
       // Clear the sequence if it gets too long
-      if (typedSequence.length > 4) {
-        typedSequence = typedSequence.slice(-4);
+      if (typedSequenceRef.current.length > 6) { // Adjust length if needed
+        typedSequenceRef.current = typedSequenceRef.current.slice(-6); // Keep the last 6 characters
       }
     };
 
@@ -56,8 +90,6 @@ const Customer = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [router]);
-
-
   // Function to handle opening delete modal and set ID of customer to be deleted
   const handleOpenDeleteModal = (id) => {
     setDeleteItemId(id);

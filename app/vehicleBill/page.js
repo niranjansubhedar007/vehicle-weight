@@ -44,7 +44,7 @@ const Weight = () => {
 
   const fetchTareWeight = async () => {
     try {
-      const response = await axios.get("https://niranjan.rajpawar.xyz/api/serial/get_data");
+      const response = await axios.get("http://localhost:5000/api/serial/get_data");
       console.log("Tare Weight Data:", response.data); // Log the response data
 
       setTareWeightData(response.data);
@@ -52,7 +52,12 @@ const Weight = () => {
     } catch (error) {
       console.error("Error fetching tare weight:", error);
     }
+
+
   };
+
+
+
 
   useEffect(() => {
     const adminAuthToken = localStorage.getItem("AdminAuthToken");
@@ -87,7 +92,7 @@ const Weight = () => {
     const fetchSerialWeight = async () => {
       try {
         const response = await axios.get(
-          "https://niranjan.rajpawar.xyz/api/serial/get_data"
+          "http://localhost:5000/api/serial/get_data"
         );
         console.log(response.data);
         setGrossWeight(response.data.weight);
